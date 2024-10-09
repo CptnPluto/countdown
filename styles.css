@@ -6,11 +6,11 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Orbitron', sans-serif;
 }
 
 #countdown-container {
-    color: #0400ff; /* Green digital clock color */
+    color: #004cff; /* Green digital clock color */
     font-size: 6rem;
     text-align: center;
 }
