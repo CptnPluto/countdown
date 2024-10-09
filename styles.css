@@ -15,8 +15,9 @@ body {
     left: 50%; /* Start from the center */
     width: 0%; /* Start with 0% width */
     height: 0%; /* Start with 0% height */
-    background: url('dbgTLV.webp') no-repeat center center fixed;
-    background-size: cover;
+    /* background: url('dbgTLV.webp') no-repeat center center fixed; */
+    background: url('hold.jpg') no-repeat center center fixed;
+    background-size: fit;
     background-position: center;
     filter: blur(10px);
     z-index: 0;
