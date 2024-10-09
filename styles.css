@@ -10,12 +10,25 @@ body {
 }
 
 #countdown-container {
-    color: #004cff; /* Green digital clock color */
+    color: #001eff; /* Green digital clock color */
     font-size: 6rem;
     text-align: center;
+    letter-spacing: 0.2em; /* Adds spacing between numbers */
 }
 
 #countdown span {
     display: inline-block;
-    min-width: 100px;
+    width: 130px; /* Set a fixed width for each time unit */
+    text-align: center; /* Center the text inside each span */
+}
+
+/* Optional: Adjust width for smaller screens */
+@media (max-width: 600px) {
+    #countdown-container {
+        font-size: 3rem;
+    }
+
+    #countdown span {
+        width: 50px;
+    }
 }
