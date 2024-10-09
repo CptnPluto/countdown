@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#countdown-container {
+    color: #0400ff; /* Green digital clock color */
+    font-size: 6rem;
+    text-align: center;
+}
+
+#countdown span {
+    display: inline-block;
+    min-width: 100px;
+}
