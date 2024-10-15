@@ -3,6 +3,17 @@ const startDate = new Date("September 30, 2024 11:00:00").getTime();
 const endDate = new Date("October 30, 2024 16:20:00").getTime();
 const totalDuration = endDate - startDate;
 
+// Function to hide the banner after 5 seconds
+function showFlashingBanner(days) {
+    document.getElementById('banner').innerText = `${days} Days Left!!!`;
+    document.getElementById('banner').style.display = 'block';
+
+    // Hide banner after 5 seconds
+    setTimeout(() => {
+        document.getElementById('banner').style.display = 'none';
+    }, 5000);
+}
+
 function updateCountdown() {
 	const now = new Date().getTime();
     // const now = new Date("October 30, 2024 16:20:00").getTime();
@@ -31,21 +42,68 @@ function updateCountdown() {
 	document.getElementById("hours").innerHTML = String(hours).padStart(2, "0");
 	document.getElementById("minutes").innerHTML = String(minutes).padStart(2,"0");
 	document.getElementById("seconds").innerHTML = String(seconds).padStart(2,"0");
+    
+    // Show banner on page load (first 5 seconds only)
+    if (!document.getElementById('banner').style.display) {
+        showFlashingBanner(days);
+    }
 
 	// Calculate values based on the time passed
 	let percentageComplete = timePassed / totalDuration;
 	if (percentageComplete > 1) percentageComplete = 1; // Cap percentage at 1
 	if (percentageComplete < 0) percentageComplete = 0; // Ensure percentage doesn't go negative
-
+    
 	let opacity = percentageComplete;
 	let blur = 10 * (1 - percentageComplete);
 	let sizePercentage = percentageComplete * 100;
+
 
 	document.getElementById("image-container").style.opacity = 0 + opacity;
 	document.getElementById("image-container").style.filter = "blur(" + blur + "px)";
 	document.getElementById("image-container").style.width = sizePercentage + "%";
 	document.getElementById("image-container").style.height = sizePercentage + "%";
 }
+
+// Initialize fireworks on page load
+window.addEventListener('load', () => {
+    const container = document.querySelector('.fireworks-container') || document.body;
+
+    // Initialize fireworks
+    const fireworks = new Fireworks.default(container, {
+        autoresize: true,
+        particles: 100,
+        trace: 3,
+        explosion: 5,
+        intensity: 30,
+        flickering: 50,
+        lineStyle: 'round',
+        brightness: {
+            min: 50,
+            max: 80
+        },
+        delay: {
+            min: 30,
+            max: 60
+        },
+        hue: {
+            min: 0,
+            max: 360
+        },
+        sound: {
+            enabled: true,
+            files: ['explosion0.mp3', 'explosion1.mp3', 'explosion2.mp3'],
+            volume: { min: 4, max: 8 }
+        }
+    });
+
+    // Start fireworks on page load
+    fireworks.start();
+
+    // Stop fireworks after 5 seconds
+    setTimeout(() => {
+        fireworks.stop();
+    }, 5000);
+});
 
 // Update countdown and background opacity every second
 setInterval(updateCountdown, 1000);

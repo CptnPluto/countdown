@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Countdown to October 30th, 4:20 PM</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <!-- Fireworks.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+    <div id="banner"></div> <!-- Flashing Banner -->
     <div id="image-container"></div>
     <div id="countdown-container">
         <div id="countdown">
@@ -17,7 +22,10 @@
             <span id="seconds">00</span>
         </div>
     </div>
+    <!-- Fireworks container (optional, or use body) -->
+    <div class="fireworks-container"></div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
