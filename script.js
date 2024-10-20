@@ -27,7 +27,7 @@ const fireworks = new Fireworks.default(container, {
 		max: 360,
 	},
 	sound: {
-		enabled: true,
+		enabled: false,
 		files: ["explosion0.mp3", "explosion1.mp3", "explosion2.mp3"],
 		volume: { min: 4, max: 8 },
 	},
