@@ -70,6 +70,10 @@ body::before {
     z-index: 2;
 }
 
+.show {
+    display: block;
+}
+
 /* Flashing effect */
 @keyframes flash {
     0%, 100% { opacity: 1; }
